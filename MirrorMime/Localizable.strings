@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  MirrorMime
+
+  Created by Balakumaran Srirangaswamy on 5/30/19.
+  Copyright © 2019 Bala. All rights reserved.
+*/
+"kTakePicture" = "Take Picture";
+"kPhotoLibrary" = "Photo Library";
+"kCancel" = "Cancel";

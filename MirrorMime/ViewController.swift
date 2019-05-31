@@ -14,17 +14,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var takePictureButton: UIButton!
+    @IBOutlet weak var firstMatchImageView: UIImageView!
+    @IBOutlet weak var secondMatchImageView: UIImageView!
+    @IBOutlet weak var thirdMatchImageView: UIImageView!
     
     private var imagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pictureImageView.layer.cornerRadius = pictureImageView.frame.height/2
+        firstMatchImageView.layer.cornerRadius = firstMatchImageView.frame.height/2
+        secondMatchImageView.layer.cornerRadius = secondMatchImageView.frame.height/2
+        thirdMatchImageView.layer.cornerRadius = thirdMatchImageView.frame.height/2
     }
     
     @IBAction func takePictureButtonPressed(_ sender: UIButton) {
         imagePickerController.delegate = self
-        imagePickerController.allowsEditing = false
+        imagePickerController.allowsEditing = true
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if let cameraAction = self.createAction(title: "kTakePicture".localized, sourceType: .camera) {
@@ -48,10 +54,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let pickedImage = info[.originalImage] as? UIImage else {
-            return
+        if let editedImage = info[.editedImage] as? UIImage {
+            pictureImageView.image = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            pictureImageView.image = originalImage
         }
-        pictureImageView.image = pickedImage
         dismiss(animated: true, completion: nil)
     }
     

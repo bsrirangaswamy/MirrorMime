@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
         pictureImageView.layer.cornerRadius = pictureImageView.frame.height/2
         firstMatchImageView.layer.cornerRadius = firstMatchImageView.frame.height/2
         secondMatchImageView.layer.cornerRadius = secondMatchImageView.frame.height/2

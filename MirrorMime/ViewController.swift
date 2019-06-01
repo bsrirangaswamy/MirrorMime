@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondMatchImageView: UIImageView!
     @IBOutlet weak var thirdMatchImageView: UIImageView!
     
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var innerStackView: UIStackView!
+    
     private var imagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {

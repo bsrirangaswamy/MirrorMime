@@ -91,6 +91,8 @@
                     </view>
                     <connections>
                         <outlet property="firstMatchImageView" destination="r28-XE-cYz" id="Fpz-FB-iW7"/>
+                        <outlet property="innerStackView" destination="fx2-DG-C36" id="dCI-XL-RLQ"/>
+                        <outlet property="mainStackView" destination="EOJ-8N-y9y" id="paY-Dm-dYT"/>
                         <outlet property="pictureImageView" destination="Ose-Ec-ad3" id="3rQ-Pp-uvQ"/>
                         <outlet property="secondMatchImageView" destination="tLQ-P5-R8g" id="oz9-Qs-hdE"/>
                         <outlet property="takePictureButton" destination="GnW-0a-kOL" id="gGk-Cv-XKr"/>

@@ -18,7 +18,7 @@ class NetworkManager: NSObject {
     static let sharedInstance = NetworkManager()
     
     // Step 1: Detect Face ID
-    func executeDetectFaceID(imageData: Data) -> [String] {
+    func executeDetectForFaceID(imageData: Data) -> [String] {
         var headers: [String: String] = [:]
         headers["Content-Type"] = "application/octet-stream"
         headers["Ocp-Apim-Subscription-Key"] = APIKey
@@ -49,7 +49,7 @@ class NetworkManager: NSObject {
             let response = self.postRequest(url: FindSimilarsUrl, postData: data, headers: headers)
             
             // Use a low confidence value to get more matches
-            let faceIds = self.getFaceIds(fromResponse: response, minConfidence: 0.4)
+            let faceIds = self.getFaceIds(fromResponse: response, minConfidence: 0.1)
             
             DispatchQueue.main.async {
                 completion(faceIds)
@@ -64,6 +64,7 @@ class NetworkManager: NSObject {
                 var canAddFace = true
                 if minConfidence != nil {
                     let confidence = (faceInfo["confidence"] as! NSNumber).floatValue
+                    print("Bala confidence level = \(confidence)")
                     canAddFace = confidence >= minConfidence!
                 }
                 if canAddFace { faceIds.append(faceId) }

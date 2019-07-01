@@ -39,8 +39,8 @@ class DataManager: NSObject {
             } else {
                 if let profileUserImageData = self.profileUser.pictureImage.jpegData(compressionQuality: 1) {
                     self.profileUser.faceIdArray = NetworkManager.sharedInstance.executeDetectForFaceID(imageData: profileUserImageData)
-                    self.people.append(self.profileUser)
-                    self.allPhotosFaceIds.append(contentsOf: self.profileUser.faceIdArray)
+//                    self.people.append(self.profileUser)
+//                    self.allPhotosFaceIds.append(contentsOf: self.profileUser.faceIdArray)
                 }
             }
             DispatchQueue.main.async {
@@ -51,11 +51,11 @@ class DataManager: NSObject {
     
     func filterPersons(withFaceIds faceIds: [String]) -> [User] {
         var filteredPersons: [User] = []
-        
         let faceIdsSet = Set(faceIds)
+//        let faceIdsSet = Set(faceIds.count > 4 ? Array(faceIds[0...3]) : faceIds)
         for person in people {
             let fileteredFaceIDSet = Set(person.faceIdArray).intersection(faceIdsSet)
-            if !fileteredFaceIDSet.isEmpty {
+            if !fileteredFaceIDSet.isEmpty && !filteredPersons.contains(person) {
                 filteredPersons.append(person)
             }
         }

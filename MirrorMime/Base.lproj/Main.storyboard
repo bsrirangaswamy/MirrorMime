@@ -36,67 +36,74 @@
                                     <constraint firstAttribute="width" secondItem="Ose-Ec-ad3" secondAttribute="height" multiplier="1:1" id="qtU-J9-hIk"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EOJ-8N-y9y">
-                                <rect key="frame" x="53" y="498" width="308" height="235"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y7p-1r-mME">
+                                <rect key="frame" x="20" y="498" width="374" height="378"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r28-XE-cYz">
-                                        <rect key="frame" x="0.0" y="35" width="165.5" height="165.5"/>
-                                        <color key="backgroundColor" red="0.36865049630000002" green="0.72922585230000003" blue="0.51712023949999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="r28-XE-cYz" secondAttribute="height" multiplier="1:1" id="Dmb-vr-w1Q"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-DG-C36">
-                                        <rect key="frame" x="175.5" y="0.0" width="132.5" height="235"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z7O-iB-afw">
+                                        <rect key="frame" x="0.0" y="2" width="177" height="374"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLQ-P5-R8g">
-                                                <rect key="frame" x="0.0" y="0.0" width="132.5" height="132.5"/>
-                                                <color key="backgroundColor" red="1" green="0.27941910749999999" blue="0.19841053710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dW2-8h-74L">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                                <color key="backgroundColor" red="0.36865049630000002" green="0.72922585230000003" blue="0.51712023949999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="tLQ-P5-R8g" secondAttribute="height" multiplier="1:1" id="rOW-nK-3vG"/>
+                                                    <constraint firstAttribute="width" secondItem="dW2-8h-74L" secondAttribute="height" multiplier="1:1" id="WB4-yQ-ghD"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1UG-Ly-GW2">
-                                                <rect key="frame" x="20" y="142.5" width="92.5" height="92.5"/>
-                                                <color key="backgroundColor" red="1" green="0.56862745100000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4G-r2-uYb">
+                                                <rect key="frame" x="0.0" y="197" width="177" height="177"/>
+                                                <color key="backgroundColor" red="0.36865049630000002" green="0.72922585230000003" blue="0.51712023949999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="1UG-Ly-GW2" secondAttribute="height" multiplier="1:1" id="Q4j-RI-Lr6"/>
+                                                    <constraint firstAttribute="width" secondItem="Q4G-r2-uYb" secondAttribute="height" multiplier="1:1" id="eK5-QN-Tln"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="1UG-Ly-GW2" firstAttribute="width" secondItem="tLQ-P5-R8g" secondAttribute="width" multiplier="0.7" id="dz4-Xu-cfn"/>
-                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IYa-t4-eua">
+                                        <rect key="frame" x="197" y="2" width="177" height="374"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r28-XE-cYz">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                                <color key="backgroundColor" red="0.36865049630000002" green="0.72922585230000003" blue="0.51712023949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="r28-XE-cYz" secondAttribute="height" multiplier="1:1" id="gbK-Y3-eJy"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgr-OJ-MNh">
+                                                <rect key="frame" x="0.0" y="197" width="177" height="177"/>
+                                                <color key="backgroundColor" red="0.36865049630000002" green="0.72922585230000003" blue="0.51712023949999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="mgr-OJ-MNh" secondAttribute="height" multiplier="1:1" id="cDa-KV-U87"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="tLQ-P5-R8g" firstAttribute="width" secondItem="r28-XE-cYz" secondAttribute="width" multiplier="0.8" id="hCX-Bg-kME"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GnW-0a-kOL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0Gb-hD-If2"/>
                             <constraint firstItem="GnW-0a-kOL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="0Ve-2A-ziI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EOJ-8N-y9y" secondAttribute="bottom" constant="20" id="AQK-VC-0FJ"/>
-                            <constraint firstItem="r28-XE-cYz" firstAttribute="width" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="AQM-pN-Xg1"/>
+                            <constraint firstItem="Y7p-1r-mME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6qG-Th-huu"/>
                             <constraint firstItem="Ose-Ec-ad3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Lqa-CH-pGO"/>
+                            <constraint firstItem="Y7p-1r-mME" firstAttribute="top" secondItem="GnW-0a-kOL" secondAttribute="bottom" constant="20" id="e4j-US-asj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y7p-1r-mME" secondAttribute="trailing" constant="20" id="hyr-Jb-ovz"/>
                             <constraint firstItem="GnW-0a-kOL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="n3l-4i-Nh4"/>
                             <constraint firstItem="GnW-0a-kOL" firstAttribute="top" secondItem="Ose-Ec-ad3" secondAttribute="bottom" constant="20" id="omA-92-gHt"/>
-                            <constraint firstItem="EOJ-8N-y9y" firstAttribute="top" secondItem="GnW-0a-kOL" secondAttribute="bottom" constant="20" id="sGc-E0-7JH"/>
+                            <constraint firstAttribute="bottom" secondItem="Y7p-1r-mME" secondAttribute="bottom" constant="20" id="pLy-xT-kyx"/>
                             <constraint firstItem="Ose-Ec-ad3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="vDi-BX-QDd"/>
-                            <constraint firstItem="EOJ-8N-y9y" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wW1-yf-Cr8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="firstMatchImageView" destination="r28-XE-cYz" id="Fpz-FB-iW7"/>
-                        <outlet property="innerStackView" destination="fx2-DG-C36" id="dCI-XL-RLQ"/>
-                        <outlet property="mainStackView" destination="EOJ-8N-y9y" id="paY-Dm-dYT"/>
+                        <outlet property="leftStackView" destination="z7O-iB-afw" id="iqO-GJ-1r5"/>
                         <outlet property="pictureImageView" destination="Ose-Ec-ad3" id="3rQ-Pp-uvQ"/>
-                        <outlet property="secondMatchImageView" destination="tLQ-P5-R8g" id="oz9-Qs-hdE"/>
+                        <outlet property="rightStackView" destination="IYa-t4-eua" id="Jj5-ns-0MH"/>
                         <outlet property="takePictureButton" destination="GnW-0a-kOL" id="gGk-Cv-XKr"/>
-                        <outlet property="thirdMatchImageView" destination="1UG-Ly-GW2" id="9sw-l9-wFx"/>
+                        <outletCollection property="matchedImageView" destination="dW2-8h-74L" collectionClass="NSMutableArray" id="KHa-Oc-MPI"/>
+                        <outletCollection property="matchedImageView" destination="r28-XE-cYz" collectionClass="NSMutableArray" id="D6O-g6-80y"/>
+                        <outletCollection property="matchedImageView" destination="Q4G-r2-uYb" collectionClass="NSMutableArray" id="JXC-7b-Q8J"/>
+                        <outletCollection property="matchedImageView" destination="mgr-OJ-MNh" collectionClass="NSMutableArray" id="DMH-mf-NWK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -8,8 +8,8 @@
 
 import UIKit
 
-let APIKey = "c123a265114041cb9a381b0093342cb4" // Ocp-Apim-Subscription-Key
-let Region = "canadacentral"
+let APIKey = "939bac9d123b47349da849f7d5524123" // Ocp-Apim-Subscription-Key
+let Region = "centralIndia"
 let FindSimilarsUrl = "https://\(Region).api.cognitive.microsoft.com/face/v1.0/findsimilars"
 let DetectUrl = "https://\(Region).api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true"
 
@@ -61,13 +61,15 @@ class NetworkManager: NSObject {
         var faceIds: [String] = []
         for faceInfo in response {
             if let faceId = faceInfo["faceId"] as? String  {
-                var canAddFace = true
-                if minConfidence != nil {
-                    let confidence = (faceInfo["confidence"] as! NSNumber).floatValue
-                    print("Bala confidence level = \(confidence)")
-                    canAddFace = confidence >= minConfidence!
+                if let minConfidenceLevel = minConfidence {
+                    if let confidence = (faceInfo["confidence"] as? NSNumber)?.floatValue, confidence < 1.0, confidence >= minConfidenceLevel {
+                        print("Bala face ID =\(faceId) and confidence level = \(confidence)")
+                        faceIds.append(faceId)
+                    }
+                } else {
+                    print("Bala face ID when no min confidence =\(faceId)")
+                    faceIds.append(faceId)
                 }
-                if canAddFace { faceIds.append(faceId) }
             }
             
         }

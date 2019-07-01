@@ -6,5 +6,8 @@
   Copyright © 2019 Bala. All rights reserved.
 */
 "kTakePicture" = "Take Picture";
+"kSayCheese" = "SAY CHEESE";
 "kPhotoLibrary" = "Photo Library";
 "kCancel" = "Cancel";
+"kUploading" = "Uploading...";
+"kFindSimilarFace" = "Find Similar Face";

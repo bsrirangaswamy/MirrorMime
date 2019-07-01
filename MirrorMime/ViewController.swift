@@ -14,12 +14,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var takePictureButton: UIButton!
-    @IBOutlet weak var firstMatchImageView: UIImageView!
-    @IBOutlet weak var secondMatchImageView: UIImageView!
-    @IBOutlet weak var thirdMatchImageView: UIImageView!
     
-    @IBOutlet weak var mainStackView: UIStackView!
-    @IBOutlet weak var innerStackView: UIStackView!
+    @IBOutlet var matchedImageView: [UIImageView]!
+    
+    @IBOutlet weak var leftStackView: UIStackView!
+    @IBOutlet weak var rightStackView: UIStackView!
     
     private var imagePickerController = UIImagePickerController()
     private var isTakePicture = true
@@ -28,20 +27,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Load all stored images to cloud for detection -> generating unique face Ids
-        self.setPictureButtonUI(title: "Uploading...", enabled: false)
+        self.setPictureButtonUI(title: "kUploading".localized, enabled: false)
         DataManager.sharedInstance.loadData(fromFileURL: "/Images/AllPhotos", forAllPeople: true) { [weak self] in
             guard let strongSelf = self else { return }
             let _ = DataManager.sharedInstance.allPhotosFaceIds
-            strongSelf.setPictureButtonUI(title: "TAKE PICTURE", enabled: true)
+            strongSelf.setPictureButtonUI(title: "kSayCheese".localized, enabled: true)
         }
     }
     
     override func viewWillLayoutSubviews() {
-        pictureImageView.layer.cornerRadius = pictureImageView.frame.height/2
-        firstMatchImageView.layer.cornerRadius = firstMatchImageView.frame.height/2
-        secondMatchImageView.layer.cornerRadius = secondMatchImageView.frame.height/2
-        thirdMatchImageView.layer.cornerRadius = thirdMatchImageView.frame.height/2
-//        mainStackView.isHidden = true
+        self.roundImageViewEdge(imageVw: pictureImageView)
+        for imgView in matchedImageView {
+            self.roundImageViewEdge(imageVw: imgView)
+        }
     }
     
     @IBAction func takePictureButtonPressed(_ sender: UIButton) {
@@ -73,9 +71,14 @@ class ViewController: UIViewController {
                     strongSelf.similarPersonsArray = DMInstance.filterPersons(withFaceIds: faceIDs)
                     strongSelf.updateUIWithSimilarFaces()
                     strongSelf.isTakePicture = true
-                    strongSelf.setPictureButtonUI(title: "TAKE PICTURE", enabled: true)
+                    strongSelf.setPictureButtonUI(title: "kSayCheese".localized, enabled: true)
                 }
+            } else {
+                showALert(withTitle: "Oops!", andMessage: "Can you choose another picture?")
+                isTakePicture = true
+                setPictureButtonUI(title: "kSayCheese".localized, enabled: true)
             }
+            
         }
     }
     
@@ -86,39 +89,26 @@ class ViewController: UIViewController {
     }
     
     private func updateUIWithSimilarFaces() {
-        if similarPersonsArray.count > 2 {
-            mainStackView.isHidden = false
-            innerStackView.isHidden = false
-            
-            firstMatchImageView.isHidden = false
-            secondMatchImageView.isHidden = false
-            thirdMatchImageView.isHidden = false
-            
-            firstMatchImageView.image = similarPersonsArray[0].pictureImage
-            secondMatchImageView.image = similarPersonsArray[1].pictureImage
-            thirdMatchImageView.image = similarPersonsArray[2].pictureImage
-            
-        } else if similarPersonsArray.count > 1 {
-            mainStackView.isHidden = false
-            innerStackView.isHidden = false
-            
-            firstMatchImageView.isHidden = false
-            secondMatchImageView.isHidden = false
-            thirdMatchImageView.isHidden = true
-            
-            firstMatchImageView.image = similarPersonsArray[0].pictureImage
-            secondMatchImageView.image = similarPersonsArray[1].pictureImage
-            
-        } else if similarPersonsArray.count > 0 {
-            mainStackView.isHidden = false
-            innerStackView.isHidden = true
-            
-            firstMatchImageView.isHidden = false
-            
-            firstMatchImageView.image = similarPersonsArray[0].pictureImage
+        for (index, imageView) in matchedImageView.enumerated() {
+            if index < similarPersonsArray.count {
+                imageView.image = similarPersonsArray[index].pictureImage
+                imageView.isHidden = false
+                print("Bala face ID level = \(similarPersonsArray[index].faceIdArray[0])")
+            } else {
+                imageView.isHidden = true
+            }
         }
     }
     
+    private func roundImageViewEdge(imageVw: UIImageView) {
+        imageVw.layer.cornerRadius = imageVw.frame.height/2
+    }
+    
+    private func showALert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -131,11 +121,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             DataManager.sharedInstance.profileUser.pictureImage = originalImage
         }
         if pictureImageView.image != nil {
-            self.setPictureButtonUI(title: "Uploading...", enabled: false)
+            self.setPictureButtonUI(title: "kUploading".localized, enabled: false)
             DataManager.sharedInstance.loadData(forAllPeople: false) {[weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.isTakePicture = false
-                strongSelf.setPictureButtonUI(title: "Find Similar Face", enabled: true)
+                strongSelf.setPictureButtonUI(title: "kFindSimilarFace".localized, enabled: true)
             }
         }
         dismiss(animated: true, completion: nil)

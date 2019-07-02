@@ -93,7 +93,6 @@ class ViewController: UIViewController {
             if index < similarPersonsArray.count {
                 imageView.image = similarPersonsArray[index].pictureImage
                 imageView.isHidden = false
-                print("Bala face ID level = \(similarPersonsArray[index].faceIdArray[0])")
             } else {
                 imageView.isHidden = true
             }

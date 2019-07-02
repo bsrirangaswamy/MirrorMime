@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MirrorMime/ViewController.swift"
-            timestampString = "583716597.93211"
+            timestampString = "583754033.909281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "takePictureButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>

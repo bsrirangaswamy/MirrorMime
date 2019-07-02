@@ -63,11 +63,9 @@ class NetworkManager: NSObject {
             if let faceId = faceInfo["faceId"] as? String  {
                 if let minConfidenceLevel = minConfidence {
                     if let confidence = (faceInfo["confidence"] as? NSNumber)?.floatValue, confidence < 1.0, confidence >= minConfidenceLevel {
-                        print("Bala face ID =\(faceId) and confidence level = \(confidence)")
                         faceIds.append(faceId)
                     }
                 } else {
-                    print("Bala face ID when no min confidence =\(faceId)")
                     faceIds.append(faceId)
                 }
             }
